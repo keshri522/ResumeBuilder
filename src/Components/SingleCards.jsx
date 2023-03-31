@@ -1,82 +1,85 @@
 import React from 'react';
-
+// taking props from Myresume componetns 
 const SingleCards = ({ Skilldata, image, Workdata, Formdata }) => {
-    //   console.log(Skilldata)
-    //   console.log("data is", Formdata)
-
-    // console.log("The Skilldata is",Skilldata);
-    // console.log("The Imagedata is",image);
-    // console.log("The Workdata is",Workdata);
-
-    // console.log("The Formdata is",Formdata);
     return (
-        <div className='resume m-3 bg-light ' >
-
-            <div className='row' >
-                <div className='single-card'>
-                    {image ? (
-                        <div className="col-md-2" >
+        <>
+            <div className='card single-card  mt-4 mx-4 layout' style={{ backgroundColor: "#d2dae2" }}>
+                <section id="about" class="container">
+                    <div className='d-flex justify-content-center'>
+                        {image ? (
                             <img className="card-image  " src={image} alt="Cardimg" />
-                        </div>
-                    ) : (
-                        <div className="col-md-2">
-                            <img className="card-image my-2" src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
+                        ) : (
+                            <img className="card-image my-2" src="https://cdn.vectorstock.com/i/preview-1x/32/12/default-avatar-profile-icon-vector-39013212.jpg"
                                 alt="default" />
+                        )}
+                    </div>
+
+                    <h2 class=" text-dark ">{Formdata.Firstname} {Formdata.Lastname}</h2>
+                    <hr />
+                    <h6 className='text-secondary'>{Formdata.Objective}</h6>
+                    <p>
+                        <div className=''>
+                            <strong>Skills:</strong>
+
+                            {Skilldata.map((items, index) => (
+
+                                <div key={index}>
+                                    <ul className='text-secondary'>
+                                        <li>{items.FirstSkill}</li>
+                                        <li>{items.SecondSkill}</li>
+                                    </ul>
+                                    <hr />
+                                </div>
+                            ))}
                         </div>
-                    )}
-                    <div className='col-md-3'>
-                        <h2>{Formdata.Firstname}{Formdata.Lastname}</h2>
+                    </p>
+                </section>
+
+                {/* <!-- EXPERIENCE ---------------------------------------------> */}
+                <section id="experience" class="container">
+
+                    <h3 className='text-primary text-center'>Work Experience</h3>
+                    <hr />
+                    <div class="">
+                        <div class="row">
+                            {Workdata.map((itmes, index) => {
+                                return <div>
+                                    <h5 className='text-danger mt-3 '> {itmes.JobTitle}</h5>
+                                    <h6 className='text-secondary'> {itmes.OrganizationName} <span> ({itmes.StartYear} {itmes.EndYears})</span></h6>
+                                </div>
+                            })}
+                        </div>
                     </div>
-                    <div className='col-md-3' >
-                       <p>{Formdata.Address}</p>
-                       <p>{Formdata.City}</p>
-                       <p>{Formdata.City} {Formdata.PostalCode} </p>
-                       <p>{Formdata.Mobile}</p>
+                </section>
+
+                {/* <!-- CONTACT -----------------------------------------------------> */}
+                <hr />
+                <section class="container" id="contact">
+                    <h4 className='text-primary mt-3 text-center'>Contact</h4>
+                    <div class="row">
+                        <div class="col-md-4">Phone:</div>
+                        <div class="col-md-6 text-secondary">{Formdata.Mobile}</div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-4">City:</div>
+                        <div class="col-md-6 text-secondary">{Formdata.City}</div>
+                    </div>  <div class="row">
+                        <div class="col-md-4">State:</div>
+                        <div class="col-md-6 text-secondary">{Formdata.State}</div>
                     </div>
-                 <p>{Formdata.Objective}</p>
-                </div>
-                
-               <div className='row'>
-                 <h2>Professional Experience</h2>
-               </div>
+                    <div class="row">
+                        <div class="col-md-4">PinCode:</div>
+                        <div class="col-md-6 text-secondary">{Formdata.PostalCode}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">Email:</div>
+                        <div class="col-md-6  text-secondary">{Formdata.Email}</div>
+                    </div>
+                </section>
+            </div>
 
-           
-
-            <h3>Name:{Formdata.Firstname}</h3>
-
-
-            {Workdata.map((itmes, index) => {
-                return <ul>
-                    <li>
-                        {itmes.JobTitle}
-                    </li>
-                    <li>
-                        {itmes.OrganizationName}
-                    </li>
-                    <li>
-                        {itmes.StartYear}
-                    </li>
-                    <li>
-                        {itmes.EndYears}
-                    </li>
-                </ul>
-            })}
-
-            {Skilldata.map((itmes, index) => {
-                return <ul>
-                    <li>
-                        {itmes.FirstSkill}
-                    </li>
-                    <li>
-                        {itmes.SecondSkill}
-                    </li>
-                </ul>
-            })}
-        </div>
-
-
-    );
+        </>
+    )
 };
 
 
