@@ -114,7 +114,7 @@ const Home = () => {
                                     setShowMessage(true);
                                     setTimeout(() => {
                                         setShowMessage(false);
-                                        navigate('/about')
+                                        navigate('/myresume')
                                     }, 2000)
                                     // when we click on a submit the toggle function will execute and add a class
                                     toggle();

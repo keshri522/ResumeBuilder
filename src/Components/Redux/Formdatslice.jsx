@@ -18,7 +18,7 @@ const MySlice1 = createSlice({
     reducers: ({
         SendFormdataToStore: (state, action) => {
             // here we perfome some operations and define the actions..
-
+            
             if (state.data !== null) {
                 state.data.push(action.payload)
             }

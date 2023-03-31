@@ -17,6 +17,7 @@ const Myslice3 = createSlice({
     name: "SkillsInfo",
     reducers: ({
         SendSkillInfoToStore: (state, action) => {
+          
             if (state.data !== null) {
                 state.data.push(action.payload)
             }

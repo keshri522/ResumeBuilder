@@ -1,6 +1,8 @@
 import React from 'react';
+import {  faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // taking props from Myresume componetns 
-const SingleCards = ({ Skilldata, image, Workdata, Formdata }) => {
+const SingleCards = ({ Skilldata, image, Workdata, Formdata}) => {
     return (
         <>
             <div className='card single-card  mt-4 mx-4 layout' style={{ backgroundColor: "#d2dae2" }}>
@@ -20,17 +22,18 @@ const SingleCards = ({ Skilldata, image, Workdata, Formdata }) => {
                     <p>
                         <div className=''>
                             <strong>Skills:</strong>
-
-                            {Skilldata.map((items, index) => (
-
-                                <div key={index}>
+{/* if our skilldate items is empty then it throw an errro so we have use question chaining if our skilldate is empty then simpy ignore this other wise it will trhow an error */}
+                            { Skilldata?.map((items, index) => {
+                              
+                                      <div key={index}>
                                     <ul className='text-secondary'>
                                         <li>{items.FirstSkill}</li>
                                         <li>{items.SecondSkill}</li>
                                     </ul>
                                     <hr />
                                 </div>
-                            ))}
+                               
+                            })} 
                         </div>
                     </p>
                 </section>
@@ -42,8 +45,9 @@ const SingleCards = ({ Skilldata, image, Workdata, Formdata }) => {
                     <hr />
                     <div class="">
                         <div class="row">
-                            {Workdata.map((itmes, index) => {
-                                return <div>
+                        {/* if our Workdata items is empty then it throw an errro so we have use question chaining if our Workdata is empty then simpy ignore this other wise it will trhow an error */}
+                            {Workdata?.map((itmes, index) => {
+                                return <div key={index}>
                                     <h5 className='text-danger mt-3 '> {itmes.JobTitle}</h5>
                                     <h6 className='text-secondary'> {itmes.OrganizationName} <span> ({itmes.StartYear} {itmes.EndYears})</span></h6>
                                 </div>
@@ -76,6 +80,7 @@ const SingleCards = ({ Skilldata, image, Workdata, Formdata }) => {
                         <div class="col-md-6  text-secondary">{Formdata.Email}</div>
                     </div>
                 </section>
+             
             </div>
 
         </>

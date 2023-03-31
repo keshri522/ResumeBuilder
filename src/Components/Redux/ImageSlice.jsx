@@ -17,6 +17,7 @@ const ImageSlice=createSlice({
     name:"Imagedata",
     reducers:({
         SendImagetoStore:(state,action)=>{
+         
             if(state.data!==null){
                 state.data.push(action.payload)
             }

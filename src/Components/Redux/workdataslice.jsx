@@ -20,6 +20,7 @@ const Myslice2=createSlice({
     name:"WorkExperience",
     reducers:({
         SendinputFieldsToStore:(state,action)=>{
+        
             if(state.data!==null){
                 state.data.push(action.payload)
             }
