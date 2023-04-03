@@ -1,39 +1,43 @@
 import React from 'react';
-import {  faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // taking props from Myresume componetns 
-const SingleCards = ({ Skilldata, image, Workdata, Formdata}) => {
+const SingleCards = ({ Skilldata, image, Workdata, Formdata }) => {
     return (
         <>
-            <div className='card single-card  mt-4 mx-4 layout' style={{ backgroundColor: "#d2dae2" }}>
-                <section id="about" class="container">
+
+            <div className='card single-card check  head  mt-4 mx-4 layout' style={{ backgroundColor: "#d2dae2" }}>
+
+                <section id="about" class="container  ">
                     <div className='d-flex justify-content-center'>
                         {image ? (
-                            <img className="card-image  " src={image} alt="Cardimg" />
+                            <img className="card-image  my-2 " src={image} alt="Cardimg" />
                         ) : (
-                            <img className="card-image my-2" src="https://cdn.vectorstock.com/i/preview-1x/32/12/default-avatar-profile-icon-vector-39013212.jpg"
+                            <img className="card-image my-2 " src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                                 alt="default" />
                         )}
                     </div>
-
+                    {/* this is for putting a overlay div .. to make it hover when someone hovers...show button */}
+                    <div class="overlay"></div>
+                    <div class="button btn btn-primary btn-sm" >Download</div>
                     <h2 class=" text-dark ">{Formdata.Firstname} {Formdata.Lastname}</h2>
                     <hr />
                     <h6 className='text-secondary'>{Formdata.Objective}</h6>
                     <p>
                         <div className=''>
                             <strong>Skills:</strong>
-{/* if our skilldate items is empty then it throw an errro so we have use question chaining if our skilldate is empty then simpy ignore this other wise it will trhow an error */}
-                            { Skilldata?.map((items, index) => {
-                              
-                                      <div key={index}>
+                            {/* if our skilldate items is empty then it throw an errro so we have use question chaining if our skilldate is empty then simpy ignore this other wise it will trhow an error */}
+                            {Skilldata?.map((items, index) => {
+
+                                return <div key={index}>
                                     <ul className='text-secondary'>
                                         <li>{items.FirstSkill}</li>
                                         <li>{items.SecondSkill}</li>
                                     </ul>
                                     <hr />
                                 </div>
-                               
-                            })} 
+
+                            })}
                         </div>
                     </p>
                 </section>
@@ -45,7 +49,7 @@ const SingleCards = ({ Skilldata, image, Workdata, Formdata}) => {
                     <hr />
                     <div class="">
                         <div class="row">
-                        {/* if our Workdata items is empty then it throw an errro so we have use question chaining if our Workdata is empty then simpy ignore this other wise it will trhow an error */}
+                            {/* if our Workdata items is empty then it throw an errro so we have use question chaining if our Workdata is empty then simpy ignore this other wise it will trhow an error */}
                             {Workdata?.map((itmes, index) => {
                                 return <div key={index}>
                                     <h5 className='text-danger mt-3 '> {itmes.JobTitle}</h5>
@@ -80,8 +84,9 @@ const SingleCards = ({ Skilldata, image, Workdata, Formdata}) => {
                         <div class="col-md-6  text-secondary">{Formdata.Email}</div>
                     </div>
                 </section>
-             
+
             </div>
+
 
         </>
     )

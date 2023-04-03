@@ -10,6 +10,7 @@
 
 }
 
+
 .single-card {
   display: flex;
   box-shadow: 0 0 15px silver;
@@ -20,6 +21,53 @@
   height: 100px;
   max-width: 120px;
   border-radius: 30%;
+}
+
+/* for the button on which user donwload the resume */
+
+.button {
+  /*  
+  position: absolute;
+  width: 500px;
+  left:0;
+  top: 180px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* for hovering effects when user hover on resue card */
+.head:hover .overlay {
+  display: block;
+  background: rgba(244, 12, 12, 0.3);
+  box-shadow: 0 0 2px 5px rgb(50, 3, 3);
+  transition: ease-in-out 0.4s;
+
+
+}
+
+/* for center the download button */
+.head:hover .button {
+  opacity: 1;
+
+  /* position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%); */
+
 }
 
 body {
