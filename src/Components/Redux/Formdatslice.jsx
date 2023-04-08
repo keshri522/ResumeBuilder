@@ -18,14 +18,14 @@ const MySlice1 = createSlice({
     reducers: ({
         SendFormdataToStore: (state, action) => {
             // here we perfome some operations and define the actions..
-            
+
             if (state.data !== null) {
                 state.data.push(action.payload)
             }
             else {
                 state.data = [action.payload]
             }
-    //    here we send all the data to local Storage
+            //    here we send all the data to local Storage
             localStorage.setItem("FormData", JSON.stringify(state.data));
         }
     })

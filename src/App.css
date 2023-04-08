@@ -10,7 +10,6 @@
 
 }
 
-
 .single-card {
   display: flex;
   box-shadow: 0 0 15px silver;
@@ -18,9 +17,10 @@
 }
 
 .card-image {
-  height: 100px;
-  max-width: 120px;
-  border-radius: 30%;
+  height: 120px;
+  /* max-width: 120px; */
+  width: 30%;
+  border-radius: 25%;
 }
 
 /* for the button on which user donwload the resume */
@@ -53,8 +53,9 @@
 .head:hover .overlay {
   display: block;
   background: rgba(244, 12, 12, 0.3);
+
   box-shadow: 0 0 2px 5px rgb(50, 3, 3);
-  transition: ease-in-out 0.4s;
+  transition: ease-in-out 0.2s;
 
 
 }
@@ -299,6 +300,10 @@ body {
     position: relative;
     left: 16px;
   }
+
+  .layout {
+    flex-basis: 80vw;
+  }
 }
 
 
@@ -307,5 +312,9 @@ body {
   .position {
     position: relative;
     left: 16px;
+  }
+
+  .layout {
+    flex-basis: 80vw;
   }
 }
