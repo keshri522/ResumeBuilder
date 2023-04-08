@@ -4,21 +4,24 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 // this the function for dowloading the  resume into pdf
-function downloadPDF(id) {
-    const filename = 'download.pdf';
-    //   code for donwloading the pdf of the resumes that we build in resume sections.
-    // this is normal  code for downloding the pdf
-    html2canvas(id).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF("portrait", "pt", "a4");
-        var width = pdf.internal.pageSize.getWidth();
-        var height = pdf.internal.pageSize.getHeight();
-        pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-        pdf.save(filename);
-    });
-}
+
 
 const SingleCards = ({ Skilldata, image, Workdata, Formdata, handleDownload }) => {
+
+    function downloadPDF(id) {
+        const filename =Formdata.Firstname;
+        //   code for donwloading the pdf of the resumes that we build in resume sections.
+        // this is normal  code for downloding the pdf
+        html2canvas(id).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF("portrait", "pt", "a4");
+            var width = pdf.internal.pageSize.getWidth();
+            var height = pdf.internal.pageSize.getHeight();
+            pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+            pdf.save(filename);
+        });
+    }
+
     // this is the function that apply on button that is passesd as props in SingleCards components
     function handleDownload(id) {
         // here we bascially getting the resume basesd on the id that we create in SingleCards it donwload the only resmues that we clicked that id is passed here
