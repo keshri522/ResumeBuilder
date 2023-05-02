@@ -44,6 +44,7 @@ This is simple Resume Builder application.
 ## Deployment
 
 To deploy this project run
+- https://keshri522.github.io/ResumeBuilder/
 
 ```bash
   npm run deploy
